@@ -4,8 +4,8 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-        "editor": "node-red --settings=./settings.js -D httpAdminRoot=/ -D readOnly=false",
-        "start": "node-red --settings=./settings.js"
+        "start": "node-red --settings=./settings.js -D httpAdminRoot=/ -D readOnly=false",
+        "editor": "node-red --settings=./settings.js"
       },
     "dependencies": {
         "magichome-led-node": "~1.0.2",
