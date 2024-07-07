@@ -1,3 +1,17 @@
+# FROM nodered/node-red
+
+
+# WORKDIR /data
+# COPY package.json /data
+# RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production
+# WORKDIR /usr/src/node-red
+
+# COPY settings.js /data/settings.js
+# COPY flows_cred.json /data/flows_cred.json
+# COPY flows.json /data/flows.json
+
+# CMD ["npm", "start", "--", "--userDir", "/data"]
+
 FROM nodered/node-red
 
 # Copy package.json to the WORKDIR so npm builds all
@@ -7,13 +21,17 @@ COPY package.json /data
 RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production
 WORKDIR /usr/src/node-red
 
-# Copy _your_ Node-RED project files into place
-# NOTE: This will only work if you DO NOT later mount /data as an external volume.
-#       If you need to use an external volume for persistence then
-#       copy your settings and flows files to that volume instead.
+# Copy your Node-RED project files into place
 COPY settings.js /data/settings.js
 COPY flows_cred.json /data/flows_cred.json
 COPY flows.json /data/flows.json
 
-# Menetapkan CMD default untuk menjalankan Node-RED dengan mode UI
-CMD ["npm", "start", "--", "--userDir", "/data"]
+# Copy entrypoint script and give execute permission
+COPY entrypoint.sh /usr/src/node-red/entrypoint.sh
+RUN chmod +x /usr/src/node-red/entrypoint.sh
+
+# Expose port used by Node-RED
+EXPOSE 1880
+
+# Set entrypoint to the script
+ENTRYPOINT ["sh", "/usr/src/node-red/entrypoint.sh"]

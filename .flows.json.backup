@@ -223,7 +223,8 @@
         "wires": [
             [
                 "68d68f6349c0f682",
-                "534562fc5e122807"
+                "534562fc5e122807",
+                "74067c57639ce34e"
             ]
         ]
     },
@@ -462,6 +463,34 @@
         "className": "",
         "x": 510,
         "y": 80,
+        "wires": []
+    },
+    {
+        "id": "74067c57639ce34e",
+        "type": "ui_gauge",
+        "z": "269871c9ce327a4f",
+        "name": "HUM",
+        "group": "f669b575a958c6b6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 510,
+        "y": 280,
         "wires": []
     }
 ]
