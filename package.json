@@ -3,6 +3,10 @@
     "description": "A Node-RED Project",
     "version": "0.0.1",
     "private": true,
+    "scripts": {
+        "editor": "node-red --settings=./settings.js -D httpAdminRoot=/ -D readOnly=false",
+        "start": "node-red --settings=./settings.js"
+      },
     "dependencies": {
         "magichome-led-node": "~1.0.2",
         "node-red-contrib-firebase": "~1.1.1",

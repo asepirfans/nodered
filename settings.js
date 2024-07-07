@@ -492,11 +492,12 @@ module.exports = {
     /** If you installed the optional node-red-dashboard you can set it's path
      * relative to httpNodeRoot
      * Other optional properties include
-     *  readOnly:{boolean},
      *  middleware:{function or array}, (req,res,next) - http middleware
      *  ioMiddleware:{function or array}, (socket,next) - socket.io middleware
-     */
-    //ui: { path: "ui" },
+    */
+   //ui: { path: "ui" },
+    readOnly:true,
+    httpAdminRoot: false,
 
     /** Colourise the console output of the debug node */
     //debugUseColors: true,

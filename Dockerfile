@@ -14,3 +14,6 @@ WORKDIR /usr/src/node-red
 COPY settings.js /data/settings.js
 COPY flows_cred.json /data/flows_cred.json
 COPY flows.json /data/flows.json
+
+# Menetapkan CMD default untuk menjalankan Node-RED dengan mode UI
+CMD ["npm", "start", "--", "--userDir", "/data"]
